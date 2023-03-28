@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/WRauch/webdev-backend/issues"
   },
-  "homepage": "https://github.com/WRauch/webdev-backend#readme"
+  "homepage": "https://github.com/WRauch/webdev-backend#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
