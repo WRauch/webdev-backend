@@ -10,7 +10,7 @@ mongoose.connect(CONNECTION_STRING);
 const app = express();
 app.use(cors({
   credentials:true,
-  origin: "http://localhost:3000"
+  origin: '*'
 }));
 //app.set('trust proxy', 1); // may need to remove locally
 app.use(session(
