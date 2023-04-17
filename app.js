@@ -22,9 +22,10 @@ app.use(cors({
   credentials:true,
   origin: corsOptions
 }));
-app.set('trust proxy', 1);
+app.enable('trust proxy', true);
 app.use(session(
   {
+    proxy: true,
     secret: "secret",
     resave: false,
     saveUninitialized: true,

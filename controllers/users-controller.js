@@ -58,7 +58,7 @@ const UsersController = (app) => {
       return;
     }
     const newUser = await dao.createUser(user);
-    req.session.currentUser = newUser;
+    req.session["currentUser"] = newUser;
     res.json(newUser);
   };
 
