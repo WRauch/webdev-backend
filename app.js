@@ -10,9 +10,9 @@ mongoose.connect(CONNECTION_STRING);
 const app = express();
 app.use(cors({
   credentials:true,
-  origin: "http://localhost:3000" || "https://master--clever-banoffee-8241cf.netlify.app/"
+  origin: "http://localhost:3000" || "https://master--clever-banoffee-8241cf.netlify.app"
 }));
-//app.set('trust proxy', 1); // may need to remove locally
+app.set('trust proxy', 1);
 app.use(session(
   {
     secret: "secret",
