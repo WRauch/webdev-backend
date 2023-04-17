@@ -1,4 +1,4 @@
-import * as usersDao from './users-dao.js'
+import * as dao from './users-dao.js'
 
 const UsersController = (app) => {
   const findAllUsers = async (req, res) => {
@@ -51,6 +51,7 @@ const UsersController = (app) => {
   };
   const register = async (req, res) => {
     const user = req.body;
+    console.log(user)
     const existingUser = await dao.findUserByUsername(user.username);
     if (existingUser) {
       res.sendStatus(409);
