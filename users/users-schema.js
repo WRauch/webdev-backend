@@ -4,5 +4,6 @@ const schema = mongoose.Schema(  {
   password: { type: String, required: true },
   createdOn: { type: Date, default: Date.now },
   isAdmin: { type: Boolean, default: false },
+  bio: {type: String},
 }, {collection: 'users'});
 export default schema;

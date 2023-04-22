@@ -1,9 +1,11 @@
 import express from 'express';
 import UserController
-  from "./controllers/users-controller.js"
+  from "./users/users-controller.js"
+import TeamsController from './teams/teams-controller.js';
 import session from 'express-session';
 import cors from 'cors'
 import mongoose from "mongoose";
+import FriendsController from './friends/friends-controller.js';
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING
  || 'mongodb://127.0.0.1:27017/hockey'
 mongoose.connect(CONNECTION_STRING);
@@ -34,5 +36,7 @@ app.use(session(
 ))
 app.use(express.json());
 UserController(app);
+TeamsController(app);
+FriendsController(app);
 app.listen(process.env.PORT || 4000);
 

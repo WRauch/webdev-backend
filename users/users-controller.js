@@ -1,4 +1,5 @@
 import * as dao from './users-dao.js'
+import * as followsDao from "../follows/follows-dao.js"
 
 const UsersController = (app) => {
   const findAllUsers = async (req, res) => {
@@ -62,6 +63,12 @@ const UsersController = (app) => {
     res.json(newUser);
   };
 
+  const getFollowedTeams = async (req, res) => {
+
+    const followers = await followsDao.findFollowByUserId(req.params.userId)
+    res.json(followers)
+}
+
   app.post("/api/users/login", login);
   app.post("/api/users/logout", logout);
   app.get("/api/users/profile", profile);
@@ -72,6 +79,8 @@ const UsersController = (app) => {
   app.post("/api/users", createUser);
   app.put("/api/users/:id", updateUser);
   app.delete("/api/users/:id", deleteUser);
+  app.get("/api/users/:userId/follows", getFollowedTeams);
+
 };
 
 export default UsersController;
